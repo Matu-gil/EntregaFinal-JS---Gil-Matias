@@ -7,24 +7,28 @@ function bienvenido() {
   console.log("Bienvenido al consecionario El Matuu");
   console.log("Nuestro catalogo de vehiculos es el siguiente: ");
 
-  for(i=0; i<productos.length; i++) {
-    console.log("-------------------")
+  mostrarCatalogo();
+}
+function mostrarCatalogo() {
+  for(let i=0; i<productos.length; i++) {
+    console.log("-------------------");
     console.log(i + " - " + productos[i]);
   }
-
-  comprar = prompt("Desea comprar algun vehiculo? escriba si o no");
-    if(comprar==="si") {
-      vehiculoNro = prompt("Que vehiculo desea comprar? Ingrese el numero de la lista mostrada");
-      comprarVehiculo(vehiculoNro);
-    } else {
-      alert("Que tenga un buen dia!");
-    }
 }
 
+  const comprar = prompt("Desea comprar algun vehiculo? si/no");
+    if(comprar==="si") {
+      const vehiculoNro = prompt("Que vehiculo desea comprar? Ingrese el numero de la lista mostrada");
+      comprarVehiculo(vehiculoNro);
+    } else {
+      mostrarMensaje("Que tenga un buen dia!");
+    } 
+
+
 function comprarVehiculo(producto) {
-  for(i=0; i<productos.length; i++) {
+  for(let i=0; i<productos.length; i++) {
     if(producto == i) {
-      precio = productos[i].slice(-6);
+      let precio = productos[i].slice(-6);
       let valor = parseInt(precio);
       if(valor >= 60000 ) {
         precio = aplicarDescuento(valor);
@@ -36,7 +40,6 @@ function comprarVehiculo(producto) {
     }
   } 
 }
-
 function aplicarDescuento(precio) {
   precio = precio / 15;
   return precio;
