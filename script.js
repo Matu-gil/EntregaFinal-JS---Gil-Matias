@@ -8,22 +8,24 @@ function bienvenido() {
   console.log("Nuestro catalogo de vehiculos es el siguiente: ");
 
   mostrarCatalogo();
+
+ const comprar = prompt("Desea comprar algun vehiculo? si/no");
+  
+  if(comprar==="si") {
+    let vehiculoNro = prompt("Que vehiculo desea comprar? Ingrese el numero de la lista mostrada");
+    comprarVehiculo(vehiculoNro);
+  } else {
+    mostrarMensaje("Que tenga un buen dia!");
+    }
 }
+  
+  
 function mostrarCatalogo() {
-  for(let i=0; i<productos.length; i++) {
-    console.log("-------------------");
-    console.log(i + " - " + productos[i]);
-  }
+    for(let i=0; i<productos.length; i++) {
+      console.log("-------------------");
+      console.log(i + " - " + productos[i]);
+    }
 }
-
-  const comprar = prompt("Desea comprar algun vehiculo? si/no");
-    if(comprar==="si") {
-      const vehiculoNro = prompt("Que vehiculo desea comprar? Ingrese el numero de la lista mostrada");
-      comprarVehiculo(vehiculoNro);
-    } else {
-      mostrarMensaje("Que tenga un buen dia!");
-    } 
-
 
 function comprarVehiculo(producto) {
   for(let i=0; i<productos.length; i++) {
