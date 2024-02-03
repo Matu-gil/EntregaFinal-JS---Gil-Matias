@@ -1,0 +1,14 @@
+
+[
+    {"id": "1", "nombre": "Audi A4", "precio": "49000 USD", "imagen": "imagenes/audi a4.jpg"},
+    {"id": "2", "nombre": "BMW M4", "precio": "54000 USD", "imagen": "imagenes/bmw m4.jpg"},
+    {"id": "3", "nombre": "Ford Mustang", "precio": "51000 USD", "imagen": "imagenes/Ford Mustang.jpg"},
+    {"id": "4", "nombre": "Chevrolet Camaro", "precio": "50000 USD", "imagen": "imagenes/chevrolet camaro.jpg"},
+    {"id": "5", "nombre": "Aston Martin DB9", "precio": "75000 USD", "imagen": "imagenes/Aston Martin.jpg"},
+    {"id": "6", "nombre": "Volkswaguen Sirocco", "precio": "39000 USD", "imagen": "imagenes/Volkswagen Sirocco.jpg"},
+    {"id": "7", "nombre": "Renault Megane RS", "precio": "37000 USD", "imagen": "imagenes/Renault Megane.jpg"},
+    {"id": "8", "nombre": "Mercedes C200", "precio": "66000 USD", "imagen": "imagenes/Mercedes c200.jpg"},
+    {"id": "9", "nombre": "Ferrari 488 GTO", "precio": "89000 USD", "imagen": "imagenes/Ferrari.jpg"},
+    {"id": "10", "nombre": "Fiat 600", "precio": "10000 USD", "imagen": "imagenes/Fiat 600.jpg"}
+  ]
+  
