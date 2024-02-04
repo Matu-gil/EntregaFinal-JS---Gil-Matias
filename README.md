@@ -1,3 +1,3 @@
 # Comision 55970 - Curso de JavaScript
-## Primera Pre-Entrega
+## Segunda Pre-Entrega
 ### Alumno: Gil, Matias Ezequiel
