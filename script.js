@@ -1,7 +1,8 @@
 
 fetch('data.json')
     .then(response => response.json())
-    .then(datos => {
+    .then(data => {
+        datos = data;
         for (const auto of datos) {
             let contenedor = document.createElement("div");
 
@@ -23,7 +24,7 @@ fetch('data.json')
     let contenedor1 = document.getElementById("contenedor1");
 
 contenedor1.innerHTML = `
-    <h1>BIENVENIDO AL CONCESIONARIO DE EKKO</h1>
+    <h1 class = "bienvenida">BIENVENIDO AL CONCESIONARIO DE EKKO</h1>
     <h2>Aquí encontrarás una alta gama de Vehículos</h2>
     <p>Ingrese a continuación su Nombre y Apellido</p>
     <input id="nombreYApellido" type="text">
@@ -53,10 +54,9 @@ boton.addEventListener("click", function () {
         let botonConfirmar = document.getElementById("confirmar");
         botonConfirmar.addEventListener("click", function () {
             let numeroVehiculo = parseInt(document.getElementById("numeroVehiculo").value);
-            let vehiculoSeleccionado = datos.find( data => data.id === numeroVehiculo);
-
+            let vehiculoSeleccionado = datos.find( auto => auto.id === numeroVehiculo);
             if (vehiculoSeleccionado) {
-                comprarVehiculo(vehiculoSeleccionado);
+                comprarVehiculo(vehiculoSeleccionado, datos);
             } else {
                 contenedor3.innerHTML = `<p>Número de vehículo no válido. Por favor, ingrese un número válido.</p>`;
             }
@@ -69,15 +69,12 @@ boton.addEventListener("click", function () {
 });
 
 
-function comprarVehiculo(vehiculo) {
+function comprarVehiculo(vehiculo, datos) {
     let contenedor4 = document.getElementById("contenedor4");
     let contenido ="";
+    let precio = parseFloat(vehiculo.precio.replace("USD", "").replace(",", ""));
 
-    for (let i = 0; i < datos.length; i++) {
-        if (vehiculo.id === datos[i].id) {
-            let precio = parseFloat(vehiculo.precio.replace("USD", "").replace(",", ""));
-
-            if (precio >= 60000) {
+           if (precio >= 60000) {
                 precio = aplicarDescuento(precio);
                 contenido =`
                         <h3>Felicitaciones por tu compra!</h3>
@@ -85,14 +82,14 @@ function comprarVehiculo(vehiculo) {
                             <img src="${vehiculo.imagen}" class="card-img-top">
                             <div class="car">
                                 <h5 class="card-title">${vehiculo.id} ${vehiculo.nombre}</h5>
-                                <p class="card-text">Precio con descuento: $${precio.toFixed(2)}</p>
+                                <p class="card-text">Precio: $${vehiculo.precio}</p>
                             </div>
                         </div>
-                        <p>Gracias por tu compra, se te ha aplicado un descuento de $${precio.toFixed(2)}. ¡Vuelve pronto!</p>
+                        <p>Gracias por tu compra, se te ha aplicado un descuento de $${precio.toFixed(2)} al superar los 60.000. ¡Vuelve pronto!</p>
                     </div>`;
             } else {
               contenido = `
-                    <div id="contenedor4">
+                    <div class="contenedor4">
                         <h3>Felicitaciones por tu compra!</h3>
                         <div class="card" style="width: 18rem;">
                             <img src="${vehiculo.imagen}" class="card-img-top">
@@ -104,12 +101,17 @@ function comprarVehiculo(vehiculo) {
                         <p>Gracias por tu compra. ¡Disfruta tu nuevo vehículo!</p>
                     </div>`;
             }
-            break;
-        }
-    }
+            
+        
     contenedor4.innerHTML = contenido;
+    guardarEnLocalStorage (vehiculo);
 }
 
 function aplicarDescuento(precio) {
     return precio / 15;
+}
+function guardarEnLocalStorage(vehiculo) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push(vehiculo);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }

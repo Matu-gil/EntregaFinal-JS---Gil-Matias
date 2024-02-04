@@ -1,9 +1,107 @@
+@font-face {
+    font-family: 'Protest';
+    src: url(./fuentes/Protest_Guerrilla/ProtestGuerrilla-Regular.ttf);
+    font-family: 'Mukta';
+    src: url(./fuentes/Mukta/Mukta-Medium.ttf)
+}
+
+#contenedor1 {
+    display: inline;
+}
+#contenedor1 p {
+    color: #90b9dd;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+#nombreYApellido {
+
+}
 #contenedor1 h1 {
+    
     width: 100%;
     text-align: center;
 }
 #contenedor1 h2 {
+    color: aliceblue;
     text-align: center;
     font-size: larger;
 } 
+#contenedor2 p {
+    color: azure;
+    margin-bottom: 1rem;
+}
+#contenedor2 {
+    flex-direction: column;
+    align-items: center;
+}
+#si {
+    width: 300px;
+    align-self: center;
+}
+#no {
+    width: 300px;
+    align-self: center;
+}
 
+#contenedor3 {
+    display: inline;
+    text-align: center;
+}
+#contenedor3 h3{
+    color: bisque;
+    margin-top: 1rem;
+}
+#contenedor3 p {
+    color: aliceblue;
+}
+#contenedor4 {
+    flex-direction: column;
+}
+
+.contenedor4 {
+    flex-direction: column;
+}
+
+.contenedor4 h3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+#contenedor4 h3 {
+    color: aliceblue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#contenedor4 .card {
+    width: 41%;
+    align-self: center;
+    margin: 32px 
+}
+#contenedor4 p {
+    font-size: x-large;
+    text-align: center;
+    color: #5c9ec5;;
+    text-decoration: underline;
+}
+.car {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(150,0,0,1) 50%, rgba(0,9,255,1) 100%);;
+}
+.bienvenida {
+    font-family:'Protest';
+    color: #bb2121;
+}
+.bienvenida h2 {
+    font-family: 'Mukta';
+    color: #6c6c6c;
+}
+div {
+    display: flex;
+}
