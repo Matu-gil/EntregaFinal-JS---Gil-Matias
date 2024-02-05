@@ -5,9 +5,9 @@ fetch('data.json')
         datos = data;
         for (const auto of datos) {
             let contenedor = document.createElement("div");
-
+            contenedor.className = "card";
             contenedor.innerHTML = `
-                <div class="card" style="width: 18rem;">
+                <div style="width: 18rem;">
                     <img src="${auto.imagen}" class="card-img-top">
                     <div class="car">
                         <h5 class="card-title">${auto.id} ${auto.nombre}</h5>
